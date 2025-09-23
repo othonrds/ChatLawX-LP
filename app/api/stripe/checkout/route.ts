@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { env } from '@/_lib/env';
 import { getStripe } from '@/_lib/stripe/server';
 import { createLogger, getRequestIdFromHeaders } from '@/_lib/_observability/logger';
+import { getStripeUrls } from '@/_lib/urls';
 
 export const runtime = 'nodejs';
 
@@ -24,6 +24,7 @@ export async function POST(req: NextRequest) {
 
   try {
     const stripe = getStripe();
+    const { successUrl, cancelUrl } = getStripeUrls();
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
       line_items: [
@@ -32,8 +33,8 @@ export async function POST(req: NextRequest) {
           quantity,
         },
       ],
-      success_url: `${env.NEXT_PUBLIC_APP_URL}/?success=1`,
-      cancel_url: `${env.NEXT_PUBLIC_APP_URL}/?canceled=1`,
+      success_url: successUrl,
+      cancel_url: cancelUrl,
     });
     logger.info('stripe_checkout_created', { sessionId: session.id });
     return NextResponse.json({ id: session.id, url: session.url, requestId });

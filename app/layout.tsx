@@ -1,21 +1,17 @@
 import './globals.css';
+import { getAlternateUrls } from '@/_lib/urls';
 
 export async function generateMetadata() {
-  const isDev = process.env.NODE_ENV !== 'production';
-  const baseDev = 'http://{locale}.lawx.local:3000';
-  const baseProd = 'https://{locale}.lawx.ai';
-  const map = (locale: 'pt' | 'es') => (isDev ? baseDev : baseProd).replace('{locale}', locale);
+  const alternateUrls = getAlternateUrls();
+  
   return {
     title: {
-      default: 'Lawx',
-      template: '%s | Lawx',
+      default: 'Chat LawX - Assistente Jurídico via WhatsApp',
+      template: '%s | Chat LawX',
     },
-    description: 'Landing page com SSR, Meta CAPI e Stripe',
+    description: 'Chat LawX: Seu assistente jurídico no WhatsApp. Responda dúvidas, analise PDFs e DOCX com IA.',
     alternates: {
-      languages: {
-        pt: map('pt'),
-        es: map('es'),
-      },
+      languages: alternateUrls,
     },
   } as const;
 }
