@@ -1,0 +1,85 @@
+{
+  "header": {
+    "brand": "LawX",
+    "nav": { "features": "Recursos", "tools": "Herramientas", "pricing": "Planes", "login": "Entrar" }
+  },
+  "hero": {
+    "title": "Chat LawX: tu asistente jurídico en WhatsApp",
+    "subtitle": "Resuelve dudas legales, analiza contratos y escritos (PDF/DOCX) y recibe orientaciones fundamentadas en segundos — directo en tu WhatsApp.",
+    "ctaPrimary": "Abrir en WhatsApp",
+    "ctaSecondary": "Hablar con especialista"
+  },
+  "stats": {
+    "items": [
+      { "value": "24/7", "label": "atención en WhatsApp" },
+      { "value": "PDF/DOCX", "label": "análisis de documentos" },
+      { "value": "Base legal", "label": "leyes y jurisprudencia" }
+    ]
+  },
+  "whyChoose": {
+    "title": "¿Por qué elegir el Chat LawX?",
+    "subtitle": "Asistente jurídico ágil, preciso y disponible en tu WhatsApp",
+    "items": [
+      { "title": "Respuestas fundamentadas", "desc": "Orientaciones con referencias a leyes, doctrina y jurisprudencia cuando corresponda." },
+      { "title": "Análisis de documentos", "desc": "Envía PDF/DOCX para extraer, resumir y revisar cláusulas relevantes." },
+      { "title": "Flujo en WhatsApp", "desc": "Sin apps nuevas: conversa por mensajes, envía archivos y recibe modelos y checklists." }
+    ]
+  },
+  "tools": {
+    "title": "Recursos del Chat LawX",
+    "items": [
+      { "title": "Consultas jurídicas", "desc": "Preguntas sobre plazos, procedimientos, riesgos y estrategias." },
+      { "title": "Análisis de PDF/DOCX", "desc": "Extracción, resumen y verificación de cláusulas sensibles." },
+      { "title": "Checklist contractual", "desc": "Puntos de atención e inconformidades comunes." },
+      { "title": "Resumen y highlights", "desc": "Síntesis de documentos extensos con partes relevantes." },
+      { "title": "Minutas simples", "desc": "Sugerencias de textos y cláusulas para iniciar tu escrito." }
+    ]
+  },
+  "compare": {
+    "title": "Chat LawX vs otras IAs",
+    "columns": ["Funcionalidad", "Chat LawX", "Chat genérico", "IA Genérica"],
+    "rows": [
+      { "feature": "Respuestas con base legal", "values": [true, false, false] },
+      { "feature": "Análisis de PDF/DOCX en WhatsApp", "values": [true, false, false] },
+      { "feature": "Contexto conversacional continuo", "values": [true, true, false] },
+      { "feature": "Orientaciones accionables", "values": [true, true, false] }
+    ]
+  },
+  "testimonials": {
+    "title": "¿Qué dicen nuestros clientes?",
+    "items": [
+      { "name": "Flavia Souza", "role": "Abogada", "text": "El Chat LawX en WhatsApp es mi asistente diario. Responde rápido y con base legal." },
+      { "name": "Juan Matos", "role": "Matos & Asociados", "text": "Envío contratos en PDF y recibo un resumen con puntos críticos en minutos." },
+      { "name": "Carolina López", "role": "Laboral", "text": "Atención 24/7 y orientaciones accionables. Gané velocidad sin perder seguridad jurídica." }
+    ]
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "items": [
+      { "q": "¿Cómo usar por WhatsApp?", "a": "Haz clic en ‘Abrir en WhatsApp’, inicia la conversación y envía tus dudas o documentos (PDF/DOCX)." },
+      { "q": "¿Qué formatos acepta?", "a": "Actualmente PDF y DOCX." },
+      { "q": "¿Mis datos están seguros?", "a": "Adoptamos buenas prácticas de seguridad y tratamos los documentos solo para el análisis solicitado." },
+      { "q": "¿El Chat genera escritos completos?", "a": "Entrega orientaciones y minutas simples. Recomendamos revisión profesional antes de presentar." }
+    ]
+  },
+  "footer": {
+    "product": "Producto",
+    "legal": "Legal",
+    "social": "Social",
+    "links": {
+      "product": [
+        { "label": "Recursos", "href": "#features" },
+        { "label": "Herramientas", "href": "#tools" }
+      ],
+      "legal": [
+        { "label": "Política de Privacidad", "href": "#" },
+        { "label": "Términos de Uso", "href": "#" }
+      ],
+      "social": [
+        { "label": "LinkedIn", "href": "#" },
+        { "label": "Instagram", "href": "#" }
+      ]
+    }
+  }
+}
+
