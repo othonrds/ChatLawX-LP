@@ -6,7 +6,7 @@ const nextConfig = {
   output: 'standalone',
   i18n: {
     locales: ['pt', 'es'],
-    defaultLocale: 'pt',
+    defaultLocale: 'es',
     localeDetection: false,
     domains: isDev
       ? [
