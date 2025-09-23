@@ -5,17 +5,17 @@ const nextConfig = {
   reactStrictMode: true,
   output: 'standalone',
   i18n: {
-    locales: ['es', 'pt'],
-    defaultLocale: 'es',
+    locales: ['pt', 'es'],
+    defaultLocale: 'pt',
     localeDetection: false,
     domains: isDev
       ? [
-          { domain: 'es.lawx.local', defaultLocale: 'es', locales: ['es'] },
           { domain: 'pt.lawx.local', defaultLocale: 'pt', locales: ['pt'] },
+          { domain: 'es.lawx.local', defaultLocale: 'es', locales: ['es'] },
         ]
       : [
-          { domain: 'es.lawx.ai', defaultLocale: 'es', locales: ['es'] },
           { domain: 'pt.lawx.ai', defaultLocale: 'pt', locales: ['pt'] },
+          { domain: 'es.lawx.ai', defaultLocale: 'es', locales: ['es'] },
         ],
   },
   experimental: {
