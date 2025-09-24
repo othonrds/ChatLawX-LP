@@ -86,7 +86,8 @@
     "subtitle": "Selecciona el período y compara los planes disponibles en tu jurisdicción.",
     "toggle": { "monthly": "Mensual", "yearly": "Anual" },
     "interval": { "monthly": "mensual", "yearly": "anual" },
-    "select": "Seleccionar plan"
+    "select": "Seleccionar plan",
+    "yearlyBonus": "¡Gana 6 meses gratis!"
   },
   "checkout": {
     "title": "Finalizar compra",

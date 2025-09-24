@@ -20,6 +20,7 @@ export default async function PlansPage({ searchParams }: { searchParams: Search
   const labelMonthly = dict.plans?.toggle?.monthly || 'Mensal';
   const labelYearly = dict.plans?.toggle?.yearly || 'Anual';
   const intervalMap = dict.plans?.interval || { monthly: 'mensal', yearly: 'anual' };
+  const yearlyBonus = dict.plans?.yearlyBonus;
   const h = headers();
   const proto = h.get('x-forwarded-proto') || 'http';
   const origin = h.get('origin') || `${proto}://${host}`;
@@ -44,6 +45,7 @@ export default async function PlansPage({ searchParams }: { searchParams: Search
               selectLabel={dict.plans?.select || (locale === 'es' ? 'Seleccionar plan' : 'Selecionar plano')}
               intervalLabel={intervalMap[interval] || interval}
               successUrl={successUrl}
+              yearlyBonusText={yearlyBonus}
             />
           ))}
         </div>
