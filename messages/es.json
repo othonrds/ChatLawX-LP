@@ -80,6 +80,23 @@
         { "label": "Instagram", "href": "#" }
       ]
     }
+  },
+  "plans": {
+    "title": "Planes",
+    "subtitle": "Selecciona el período y compara los planes disponibles en tu jurisdicción.",
+    "toggle": { "monthly": "Mensual", "yearly": "Anual" },
+    "interval": { "monthly": "mensual", "yearly": "anual" },
+    "select": "Seleccionar plan"
+  },
+  "checkout": {
+    "title": "Finalizar compra",
+    "selectedPrefix": "Plan seleccionado",
+    "period": "período",
+    "labels": { "phone": "Teléfono (WhatsApp)", "email": "Correo electrónico" },
+    "placeholders": { "phone": "+34 600 000 000", "email": "correo@ejemplo.com" },
+    "submit": "Continuar al pago",
+    "creating": "Creando sesión...",
+    "error": "Error al crear la sesión de pago"
   }
 }
 

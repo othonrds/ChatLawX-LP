@@ -80,6 +80,23 @@
         { "label": "Instagram", "href": "#" }
       ]
     }
+  },
+  "plans": {
+    "title": "Planos",
+    "subtitle": "Selecione o período e compare os planos disponíveis na sua jurisdição.",
+    "toggle": { "monthly": "Mensal", "yearly": "Anual" },
+    "interval": { "monthly": "mensal", "yearly": "anual" },
+    "select": "Selecionar plano"
+  },
+  "checkout": {
+    "title": "Finalizar compra",
+    "selectedPrefix": "Plano selecionado",
+    "period": "período",
+    "labels": { "phone": "Telefone (WhatsApp)", "email": "E-mail" },
+    "placeholders": { "phone": "+351 999 999 999", "email": "email@exemplo.com" },
+    "submit": "Continuar para pagamento",
+    "creating": "Criando sessão...",
+    "error": "Falha ao criar sessão de checkout"
   }
 }
 
