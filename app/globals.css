@@ -13,6 +13,7 @@
 
 * { box-sizing: border-box; }
 html, body { height: 100%; }
+html { scroll-behavior: smooth; }
 body {
   margin: 0;
   background: radial-gradient(1000px 600px at 10% 5%, #13223b 0%, var(--bg) 60%) no-repeat, var(--bg);
@@ -45,6 +46,8 @@ body {
 
 .section {
   padding: 56px 0;
+  /* offset para sticky header ao navegar por âncoras */
+  scroll-margin-top: 80px;
 }
 .section-title {
   text-align: center;

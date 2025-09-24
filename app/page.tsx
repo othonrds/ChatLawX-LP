@@ -27,14 +27,6 @@ export default async function HomePage() {
       <Testimonials title={dict.testimonials.title} items={dict.testimonials.items as any} />
       <FAQ title={dict.faq.title} items={dict.faq.items as any} />
       <Footer product={dict.footer.product} legal={dict.footer.legal} social={dict.footer.social} links={dict.footer.links as any} />
-      <main className="section">
-        <div className="container">
-          <small style={{ display: 'block', color: 'var(--muted)' }}>
-            locale: {locale} — server time: {now}
-          </small>
-        </div>
-      </main>
     </>
   );
 }
-
