@@ -24,7 +24,7 @@ export default function PlanCard({ plan, interval, jurisdiction, locale = 'pt', 
         ))}
       </ul>
        <div style={{ marginTop: 12, textAlign: 'center' }}>
-         <a className="btn btn-primary" style={{ marginTop: 12 }} href={`/checkout?plan_id=${encodeURIComponent(plan.id)}&interval=${encodeURIComponent(plan.interval)}${successUrl ? `&success_url=${encodeURIComponent(successUrl)}` : ''}`}>
+         <a className="btn btn-primary" style={{ marginTop: 12 }} href={`/checkout?plan_id=${encodeURIComponent(plan.id)}&interval=${encodeURIComponent(interval || plan.interval)}${successUrl ? `&success_url=${encodeURIComponent(successUrl)}` : ''}`}>
            {selectText}
          </a>
        </div>

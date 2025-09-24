@@ -11,7 +11,7 @@ export default async function PlansPage({ searchParams }: { searchParams: Search
   const host = headers().get('host') || '';
   const locale = deriveLocaleFromHost(host);
   const jurisdiction = locale.toUpperCase() === 'ES' ? 'ES' : 'PT';
-  const interval = (searchParams?.interval ?? 'monthly') as 'monthly' | 'yearly';
+  const interval = (searchParams?.interval ?? 'yearly') as 'monthly' | 'yearly';
 
   const plans = await fetchPlans({ interval, jurisdiction });
   const dict = await getDictionary(locale);
@@ -42,7 +42,7 @@ export default async function PlansPage({ searchParams }: { searchParams: Search
               jurisdiction={jurisdiction}
               locale={locale}
               selectLabel={dict.plans?.select || (locale === 'es' ? 'Seleccionar plan' : 'Selecionar plano')}
-              intervalLabel={intervalMap[p.interval as 'monthly' | 'yearly'] || p.interval}
+              intervalLabel={intervalMap[interval] || interval}
               successUrl={successUrl}
             />
           ))}
