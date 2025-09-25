@@ -12,7 +12,7 @@ export type Plan = {
 
 export function getApiBaseUrl(): string {
   const isDev = process.env.NODE_ENV !== 'production';
-  return isDev ? 'http://localhost:3030' : 'https://chatapi.lawx.ai';
+  return isDev ? 'https://chatapi.lawx.ai' : 'https://chatapi.lawx.ai';
 }
 
 export async function fetchPlans(params: { interval: 'monthly' | 'yearly'; jurisdiction: 'PT' | 'ES' }): Promise<Plan[]> {

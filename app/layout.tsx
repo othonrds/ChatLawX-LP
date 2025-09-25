@@ -17,13 +17,16 @@ export async function generateMetadata() {
 }
 
 import WebVitalsClient from './_components/WebVitalsClient';
+import { PlanSelectionProvider } from './_providers/PlanSelectionProvider';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR">
       <body>
-        {children}
-        <WebVitalsClient />
+        <PlanSelectionProvider>
+          {children}
+          <WebVitalsClient />
+        </PlanSelectionProvider>
       </body>
     </html>
   );

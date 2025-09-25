@@ -2,6 +2,8 @@ import CheckoutForm from '../_components/CheckoutForm';
 import { headers } from 'next/headers';
 import { deriveLocaleFromHost } from '@/_lib/i18n/locale';
 import { getDictionary } from '@/_lib/i18n/dictionary';
+import CheckoutHeader from '../_components/CheckoutHeader';
+import RegisterDevButton from '../_components/RegisterDevButton';
 
 type Search = { plan_id?: string; interval?: 'monthly' | 'yearly'; success_url?: string };
 
@@ -22,8 +24,14 @@ export default async function CheckoutPage({ searchParams }: { searchParams: Sea
   return (
     <main className="section">
       <div className="container" style={{ maxWidth: 900 }}>
-        <h1 className="section-title">{title}</h1>
-        <p className="section-subtitle">{subtitlePrefix}: <strong>{planId}</strong> — {periodoLabel}: <strong>{intervalLabel}</strong></p>
+        <CheckoutHeader
+          fallbackPlanId={planId}
+          intervalLabel={intervalLabel}
+          locale={locale as 'pt' | 'es'}
+          title={title}
+          selectedPrefix={subtitlePrefix}
+          periodLabel={periodoLabel}
+        />
         <CheckoutForm
           planId={planId}
           interval={interval}
@@ -41,6 +49,7 @@ export default async function CheckoutPage({ searchParams }: { searchParams: Sea
           creatingLabel={dict.checkout?.creating}
           errorText={dict.checkout?.error}
         />
+        <RegisterDevButton />
       </div>
     </main>
   );

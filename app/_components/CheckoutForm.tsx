@@ -19,6 +19,32 @@ export default function CheckoutForm({ planId, interval, locale = 'pt', labels, 
     const fd = new FormData(e.currentTarget);
     fd.set('plan_id', planId);
     fd.set('interval', interval);
+    // Dispara evento "cadastro_lawx_espanha" em background para ES
+    try {
+      if (locale === 'es') {
+        const email = String(fd.get('email') || '');
+        const phone = String(fd.get('phone') || '');
+        const url = new URL(window.location.href);
+        const params = url.searchParams;
+        const payload: any = {
+          email,
+          phone,
+          eventSourceUrl: window.location.href,
+          clientUserAgent: navigator.userAgent,
+          currency: params.get('currency') || undefined,
+          utm_source: params.get('utm_source') || undefined,
+          utm_campaign: params.get('utm_campaign') || undefined,
+          utm_medium: params.get('utm_medium') || undefined,
+          utm_content: params.get('utm_content') || undefined,
+          fbclid: params.get('fbclid') || undefined,
+        };
+        fetch('/api/meta/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        }).catch(() => {});
+      }
+    } catch {}
     setError(null);
     startTransition(async () => {
       const res = await createCheckoutSessionAction(fd);

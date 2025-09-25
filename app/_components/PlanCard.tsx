@@ -1,12 +1,14 @@
 "use client";
 
 import type { Plan } from '@/_lib/api/plans';
+import { usePlanSelection } from '../_providers/PlanSelectionProvider';
 
 function multiplyLeadingNumber(text: string, factor: number): string {
   return text.replace(/(\d+)/, (m) => String(Number(m) * factor));
 }
 
 export default function PlanCard({ plan, interval, jurisdiction, locale = 'pt', selectLabel, intervalLabel, successUrl, yearlyBonusText }: { plan: Plan; interval?: 'monthly' | 'yearly'; jurisdiction?: string; locale?: 'pt' | 'es'; selectLabel?: string; intervalLabel?: string; successUrl?: string; yearlyBonusText?: string }) {
+  const { setSelectedPlan } = usePlanSelection();
   const shouldDouble = interval === 'yearly' && jurisdiction === 'ES';
   const displayFeatures = (plan.features || []).map((f) => (shouldDouble ? multiplyLeadingNumber(f, 12) : f));
   const intervalText = intervalLabel || (plan.interval === 'monthly' ? (locale === 'es' ? 'mensual' : 'mensal') : (locale === 'es' ? 'anual' : 'anual'));
@@ -55,7 +57,16 @@ export default function PlanCard({ plan, interval, jurisdiction, locale = 'pt', 
           ))}
         </ul>
         <div style={{ marginTop: 12, textAlign: 'center' }}>
-          <a className="btn btn-primary" style={{ marginTop: 12 }} href={`/checkout?plan_id=${encodeURIComponent(plan.id)}&interval=${encodeURIComponent(interval || plan.interval)}${successUrl ? `&success_url=${encodeURIComponent(successUrl)}` : ''}`}>
+          <a
+            className="btn btn-primary"
+            style={{ marginTop: 12 }}
+            href={`/checkout?plan_id=${encodeURIComponent(plan.id)}&interval=${encodeURIComponent(interval || plan.interval)}${successUrl ? `&success_url=${encodeURIComponent(successUrl)}` : ''}`}
+            onClick={() => {
+              try {
+                setSelectedPlan({ id: plan.id, name: plan.name, price: annualPrice, currency, interval: (interval || plan.interval) as 'monthly' | 'yearly' });
+              } catch {}
+            }}
+          >
             {selectText}
           </a>
         </div>
