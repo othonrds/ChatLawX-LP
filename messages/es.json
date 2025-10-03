@@ -94,7 +94,7 @@
     "selectedPrefix": "Plan seleccionado",
     "period": "período",
     "labels": { "phone": "Teléfono (WhatsApp)", "email": "Correo electrónico" },
-    "placeholders": { "phone": "+34 600 000 000", "email": "correo@ejemplo.com" },
+    "placeholders": { "phone": "Tu teléfono", "email": "correo@ejemplo.com" },
     "submit": "Continuar al pago",
     "creating": "Creando sesión...",
     "error": "Error al crear la sesión de pago"
