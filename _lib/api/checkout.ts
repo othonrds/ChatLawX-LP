@@ -11,18 +11,26 @@ export type CreateCheckoutPayload = {
 
 export async function createCheckoutSession(payload: CreateCheckoutPayload): Promise<{ url: string }> {
   const base = getApiBaseUrl();
+  if (!env.TOKEN_API) {
+    throw new Error('Missing TOKEN_API environment variable');
+  }
   const res = await fetch(`${base}/external/checkout-session`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'x-external-token': env.TOKEN_API || '',
+      'x-external-token': env.TOKEN_API,
     },
     body: JSON.stringify(payload),
     cache: 'no-store',
   });
-  if (!res.ok) throw new Error(`Checkout API error: ${res.status}`);
-  const json = await res.json();
-  if (!json?.url) throw new Error('Checkout API did not return url');
-  return { url: json.url as string };
+
+  if (!res.ok) {
+    const text = await res.text().catch(() => '');
+    throw new Error(`Checkout API error: ${res.status} ${text ? `- ${text}` : ''}`.trim());
+  }
+  const json = await res.json().catch(() => ({}));
+  const url = (json?.url as string) || (json?.checkout_url as string) || (json?.data?.checkout_url as string);
+  if (!url) throw new Error('Checkout API did not return checkout_url');
+  return { url };
 }
 

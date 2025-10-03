@@ -62,6 +62,7 @@ export default function CheckoutForm({ planId, interval, locale = 'pt', labels, 
   const placeholderEmail = placeholders?.email || (locale === 'es' ? 'correo@ejemplo.com' : 'email@exemplo.com');
   const submitText = submitLabel || (locale === 'es' ? 'Continuar al pago' : 'Continuar para pagamento');
   const errorMsg = errorText || (locale === 'es' ? 'Error al crear la sesión de pago' : 'Falha ao criar sessão de checkout');
+  const finalErrorText = error || errorMsg;
   const creatingText = creatingLabel || (locale === 'es' ? 'Creando sesión...' : 'Criando sessão...');
 
   function formatPhone(value: string): string {
@@ -100,7 +101,7 @@ export default function CheckoutForm({ planId, interval, locale = 'pt', labels, 
         <label htmlFor="email">{labelEmail}</label>
         <input id="email" type="email" name="email" required placeholder={placeholderEmail} style={{ width: '100%', padding: 10, borderRadius: 8, border: '1px solid #2a3b5e', background: 'transparent', color: 'var(--text)' }} />
       </div>
-      {error && <p style={{ color: 'var(--danger)' }}>{errorMsg}</p>}
+      {error && <p style={{ color: 'var(--danger)' }}>{finalErrorText}</p>}
       <button className="btn btn-primary" disabled={isPending} type="submit">
         {isPending ? creatingText : submitText}
       </button>
